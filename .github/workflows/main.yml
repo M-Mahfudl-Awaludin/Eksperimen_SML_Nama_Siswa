@@ -34,12 +34,12 @@ jobs:
         run: |
           python template_eksperimen_msml.py
 
-      # Commit & push processed data
-      - name: Commit processed data
+      # Commit & push preprocessed data
+      - name: Commit preprocessed data
         run: |
           git config --global user.email "${{ secrets.GIT_EMAIL }}"
           git config --global user.name "${{ secrets.GIT_USERNAME }}"
-          git add processed_data.csv
+          git add preprocessed_data.csv
           # Hanya commit jika ada perubahan
           git diff --cached --quiet || git commit -m "Update processed data"
           git push
